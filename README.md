@@ -1,1 +1,1 @@
-![Screenshot 2024-07-12 at 16-29-01 Games](https://github.com/user-attachments/assets/f3863903-00d6-4cd6-be28-0a3ea7b1c5ce)
+![image](https://github.com/user-attachments/assets/618a58a3-6208-442e-a486-e0e69b1b3240)
