@@ -1,18 +1,18 @@
 import { Details } from "./details.module.js";
 import { Ui } from "./ui.module.js";
 
-export class Games {
+export class Home {
     constructor() {
         document.querySelectorAll('.link').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-link .text-red-500').classList.remove('text-red-500');
                 link.classList.add('text-red-500');
                 const category = link.dataset.category;
-                this.getGames(category);
+                this.getCategories(category);
             })
         })
         this.loadingScreen = document.getElementById('loading-screen')
-        this.getGames('mmorpg');
+        this.getCategories();
         
         this.ui = new Ui();
 
@@ -21,34 +21,22 @@ export class Games {
 
     }
 
-    async getGames(category)  {
+    async get20Product()  {
         this.loadingScreen.style.display = 'flex';
+    
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
 
-        const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`;
-        const options = {
-            method: 'GET',
-            headers: {
-                'x-rapidapi-key': 'bf855c3447msh89773a5863603e4p121e54jsnca2e72403956',
-                'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
-            }
-        };
-
-        const api = await fetch(url, options);
+        const api = await fetch(url);
         const response = await api.json();
-
-        this.ui.displayGames(response);
+        this.ui.display20Product(response);
 
         document.querySelectorAll('.game').forEach(element => {
             element.addEventListener('click', () => {
-                this.details.classList.remove('hidden');
-                this.games.classList.add('hidden');
-                console.log(element.dataset.id);
-                new Details(element.dataset.id);
+                // this.details.classList.remove('hidden');
+                // this.games.classList.add('hidden');
+                new Details(element.dataset.category);
             })
         })   
-
-
-
         this.loadingScreen.style.display = 'none';
     }
 

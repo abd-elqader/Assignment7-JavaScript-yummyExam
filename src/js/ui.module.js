@@ -4,49 +4,66 @@ export class Ui {
         
     }
 
-    displayGames(data) {
-
+    displayCategories(data) {
+        console.log(data);
         let games = ``;
-        for (const game of data) {
-            games += `
-                <div class="w-full md:w-6/12 lg:w-4/12 xl:w-3/12 p-8 game" data-id="${game.id}">
-                    <div class="inner p-4 border">
-                        <img src="${game.thumbnail}" alt="" class="w-full rounded-t">
-                        <div class="flex justify-between items-center my-2 text-white">
-                            <h3>${game.title}</h3>
-                            <span class="bg-blue-500 px-2 py-1 rounded">free</span>
+        for (const game of data.categories) {
+            games +=
+            `
+                <div class='w-100 md:w-3/12'>
+                    <div class="group p-3 cursor-pointer" data-id="${game.idCategory}">
+                        <div class="relative overflow-hidden">
+                            <img src="${game.strCategoryThumb}" alt="">
+                            <div class="absolute h-full w-full flex justify-center items-center bg-black/20 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <h1 class="text-3xl text-center game text-white" data-category="${game.strCategory}">${game.strCategory}</h1>
+                            </div>
                         </div>
-                        <p class="text-center">
-                            ${game.short_description.slice(0, 20)}
-                        </p>
-                    </div>
-                    <div class="border-t-0 border-r border-l border-b border-white text-white flex justify-between items-center px-2 py-1">
-                        <span class="bg-gray-800 rounded text-xs p-2">${game.genre}</span>
-                        <span class="bg-gray-800 rounded text-xs p-2">${game.platform}</span>
                     </div>
                 </div>
             `;    
         }
-        document.querySelector('.games').innerHTML = games;
+        document.querySelector('#content').innerHTML = games;
     }
 
-    displayGameDetails(data){
+    displayFoods(data) {
+        console.log(data.meals);
+        let games = ``;
+        for (const game of data.meals) {
+            games +=
+            `
+                <div class='w-100 md:w-3/12'>
+                    <div class="group p-3 cursor-pointer" data-id="${game.idMeal}">
+                        <div class="relative overflow-hidden">
+                            <img src="${game.strMealThumb}" alt="">
+                            <div class="absolute h-full w-full flex justify-center items-center bg-black/20 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <h1 class="text-3xl text-center text-white">${game.strMeal}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;    
+        }
+        document.querySelector('#content').innerHTML = games;
+    }
+
+    displayMealDetails(data){
+        console.log(data.meals[0].strMeal);
         const details = `
 
             <div id="content" class="flex justify-between container mx-auto gap-6">
             <figure class="w-1/3">
-                <img src="${data.thumbnail}" class="w-full" alt="">
+                <img src="${data.meals[0].strMealThumb}" class="w-full" alt="">
             </figure>
             <div class="w-2/3">
-                <h2 class="py-2">Title : <span>${data.title}</span></h2>
-                <h3 class="py-2">Category : <span>${data.genre}</span></h3>
-                <h3 class="py-2">Platform : <span>${data.platform}</span></h3>
-                <h3 class="py-2">Status : <span>${data.status}</span></h3>
+                <h2 class="py-2">Meal : <span>${data.meals[0].strMeal}</span></h2>
+                <h3 class="py-2">Category : <span>${data.meals[0].strCategory}</span></h3>
+                <h3 class="py-2">Area : <span>${data.meals[0].strArea}</span></h3>
+                <h3 class="py-2">Tags : <span>${data.meals[0].strTags}</span></h3>
                 <p class="my-5">
-                    ${data.description}
+                    ${data.meals[0].strInstructions}
                 </p>
-                <a href="${data.game_url}" target="_blank" class="text-white border-2 rounded bg-transparent border-b-yellow-700 px-4 py-2 hover:bg-yellow-300">
-                    Show game
+                <a href="${data.meals[0].strYoutube}" target="_blank" class="text-white border-2 rounded bg-transparent border-b-yellow-700 px-4 py-2 hover:bg-yellow-300">
+                    Youtube
                 </a>
             </div>
         </div>

@@ -17,11 +17,11 @@
 <body class="font-['Roboto'] bg-black text-white">
     <!-- DEMO: https://routeegy.github.io/YummyExam/ -->
     
-    <section id="sidebar" class="w-72 bg-orange-600 fixed bottom-0 top-0">
+    <section id="sidebar" class="w-72 bg-orange-600 z-50 fixed bottom-0 top-0">
         <div class="p-3 bg-white text-black absolute top-0 bottom-0 right-0 flex flex-col justify-between items-center" id="sidebar">
-            <div>ahmed</div>
+            <div>food</div>
             <div>
-                <i class="fa-solid fa-bars" id="switch"></i>
+                <i class="fa-solid fa-xmark cursor-pointer" id="switch"></i>
             </div>
             <div>
                 <i class="fa-solid fa-earth-americas"></i>
@@ -29,26 +29,99 @@
             </div>
         </div>
 
-        <div class="p-12" id="menuItem">
+        <div class="p-12 flex justify-between " id="menuItem">
             <ul >
-
-                <li class="pt-1">home</li>
-                <li class="pt-1">provider</li>
-                <li class="pt-1">contact us</li>
+                <li class="pt-1 cursor-pointer link">Search</li>
+                <li class="pt-1 cursor-pointer link">Categories</li>
+                <li class="pt-1 cursor-pointer link">Area</li>
+                <li class="pt-1 cursor-pointer link">Ingredients</li>
+                <li class="pt-1 cursor-pointer link">Contact Us</li>
             </ul>
+
         </div>
     </section>
 
-    <!-- <section id="content" class="w-11/12 inline-block mr-auto bg-slate-500 h-full">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore veniam facilis voluptatibus! Asperiores suscipit dolores cumque, maxime similique laudantium possimus maiores, aperiam praesentium alias totam deleniti facilis? Quae, sunt mollitia!</p>
-    </section> -->
+    <section class=" bg-black my-12 mx-24  flex flex-wrap" id="content">
+        <!-- <div class='w-100 md:w-3/12'>
+            <div class="group p-3">
+                <div class="relative overflow-hidden">
+                    <img src="./img/ageOfEmpire.jpeg" alt="">
+                    <div class="absolute h-full w-full flex justify-center items-center bg-black/20 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <h1 class="text-3xl text-center text-white">Age Of Empire</h1>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
 
+    <div  id="loading-screen" aria-label="Loading..." role="status" class="flex fixed inset-0 justify-center items-center space-x-2 z-[99999] bg-[rgba(0,0,0,0.5)]">
+        <svg class="h-20 w-20 animate-spin stroke-blue-700" viewBox="0 0 256 256">
+            <line x1="128" y1="32" x2="128" y2="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+            <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="24"></line>
+            <line x1="224" y1="128" x2="192" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+            </line>
+            <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="24"></line>
+            <line x1="128" y1="224" x2="128" y2="192" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+            </line>
+            <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="24"></line>
+            <line x1="32" y1="128" x2="64" y2="128" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
+            <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+            </line>
+        </svg>
+        <span class="text-4xl font-medium text-blue-700">Loading...</span>
+    </div>
 
+    <section id="details" class="bg-gray-700 fixed top-0 right-0 left-0 h-full hidden">
+        <header class="container mx-auto flex items-center justify-between">
+            <div class="py-5 text-3xl">Details Game</div>
+            <ion-icon name="close" class="close text-3xl cursor-pointer pr-6" id="btnClose"></ion-icon>
+        </header>
+        <div id="content" class="flex justify-between container mx-auto gap-6">
+            <figure class="w-1/3">
+                <img src="./img/game.jpg" class="w-full" alt="">
+            </figure>
+            <div class="w-2/3">
+                <h2 class="py-2">Title : <span></span></h2>
+                <h3 class="py-2">Category : <span></span></h3>
+                <h3 class="py-2">Platform : <span></span></h3>
+                <h3 class="py-2">Status : <span></span></h3>
+                <p class="my-5">
+                    If you’re a fan of Dungeons and Dragons, have I got a game for you! Neverwinter, 
+                    developed by Cryptic Studios and published by Perfect World Entertainment, 
+                    is based on the critically acclaimed fantasy role playing game and the best 
+                    part is ­ it’s free to play. In the world of Neverwinter, you will explore and 
+                    defend one of the most beloved cities from the Dungeons and Dragons Forgotten 
+                    Realms Campaign Setting, as it rises from the ashes of total destruction. In 
+                    this totally immersive MMORPG you will go from the besieged walls of the city, 
+                    to the subterranean passageways and search for forgotten secrets and lost treasure 
+                    along the way. Neverwinter is completely free to play, from the very first level, 
+                    all the way up to the level cap, so anyone is able to experience the engaging action 
+                    and combat it brings. You don’t have to worry about tab­targeting or auto­attacking 
+                    to defeat your enemies, Neverwinter provides an amazing combat experience where 
+                    every action will require planning and feel visceral and look spectacular. Neverwinter 
+                    also comes with Foundry, which is a dynamic tool set that will provide you with the 
+                    game assets and a sandbox environment that will allow you to create your own adventures ­ 
+                    and when you are ready to unveil your creation to the world ­ you are able to hook it 
+                    up directly to the existing work so everyone else in the community can experience it 
+                    as well! Whether you are familiar with Dungeons and Dragons from the tabletop game or f
+                    rom the novels, Neverwinter has recreated many of the iconic classes, locations and 
+                    encounters that you will know and love! You might choose to go on an adventure as a 
+                    mighty Guardian Fighter, choose to deceive foes as a Trickste
+                    r Rogue, or follow the righteous path as a Devoted Cleric, but whatever journey you 
+                    decide to take in Neverwinter you will face Kobolds, Beholders, Mimics and many other
+                    creatures from the Dungeons and Dragons universe, and you will surely feel right at home!
+                </p>
+                <a href="#" class="text-white border-2 rounded bg-transparent border-b-yellow-700 px-4 py-2 hover:bg-yellow-300">Show game</a>
+            </div>
+        </div>
+    </section>
     
-
-
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script>
+
         $(document).ready(function () {
 
             // menu
@@ -59,24 +132,18 @@
                     $('#sidebar').toggleClass('w-72 w-16');
                     $('#switch').toggleClass('fa-xmark fa-bars');
                     if($('#menuItem').is(':visible')) {
-                    }
-                    $('#menuItem').slideToggle(500);
+                        $('#menuItem').slideUp(500);
+                        $('ul').hide();
+                    }else{
+                        $('#menuItem').slideDown(500);
+                        $('ul').show(500);
+                        }
                 });
-
-                
-
-                // $('#menuItem').animate({
-                //     width: $('#menuItem').hasClass('w-72') ? '4rem' : '18rem'
-                // }, 500, function() {
-                //     $('#menuItem').toggleClass('w-72 w-16');
-                // });
             });
 
-
         });
-
-        
     </script>
+    <script src="./js/app.js" type="module"></script>
 </body>
 
 </html>
